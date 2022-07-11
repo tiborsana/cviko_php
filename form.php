@@ -12,7 +12,7 @@ if (!($con = mysqli_connect("localhost","uzivatel","heslo","otazky")))
 mysqli_query($con,"SET NAMES 'utf8'");
 if (mysqli_query($con,
 		"INSERT INTO otazky_tab(text_otazky) VALUES('" .
-		addslashes($_POST['popis']) . "')"))
+		addslashes($_POST['text_otazky']) . "')"))
 {
 	echo "Úspěšně vloženo.";
 }
@@ -40,7 +40,8 @@ while ($radek = mysqli_fetch_array($vysledek))
 {
 ?>
 <p><?php echo "<tr><td>" . $radek["id_otazky"] . "</td>";?>
-<?php echo "<td>" . $radek["text_otazky"] . "</td></tr>";?></p>
+<?php echo "<td>" . $radek["text_otazky"] . "</td>";?></p>
+<?php echo "<td>" . "<a href='detail.php?id=" . $radek["id_otazky"] . "'>Detail</a>" . "</td></tr>";?></p>
 <?php   
 }
 mysqli_free_result($vysledek);
@@ -50,7 +51,7 @@ mysqli_close($con);
 <br>
 <form method="POST" action="form.php">
 	Text otázky:
-	<textarea name="popis"></textarea>
+	<textarea name="text_otazky"></textarea>
 	<input type="submit" value="Vložit" >
 </form>
 
