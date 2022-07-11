@@ -5,11 +5,15 @@
 </head>
 <body>
 <?php
-if (!($con = mysqli_connect("localhost","uzivatel","heslo","otazky")))
+if (!($con = mysqli_connect("localhost","respondent","heslo","otazky")))
 {
 	die("Nelze se připojit k databázovému serveru!</body></html>");
 }
+
+
 mysqli_query($con,"SET NAMES 'utf8'");
+if (isset ($_POST['text_otazky']))
+{
 if (mysqli_query($con,
 		"INSERT INTO otazky_tab(text_otazky) VALUES('" .
 		addslashes($_POST['text_otazky']) . "')"))
@@ -20,10 +24,14 @@ else
 {
 	echo "Nelze provést dotaz. " . mysqli_error($con);
 }
+}
 mysqli_close($con); 
+
+
+
 ?>
 <?php
-if (!($con = mysqli_connect("localhost","uzivatel","heslo","otazky")))
+if (!($con = mysqli_connect("localhost","respondent","heslo","otazky")))
 {
   die("Nelze se připojit k databázovému serveru!</body></html>");
 }
