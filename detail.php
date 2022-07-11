@@ -24,6 +24,10 @@ if (!($vysledek = mysqli_query($con, "SELECT id_otazky, text_otazky FROM otazky_
 
 
 <table border=1>
+<tr>
+		<td>ID otázky</td>
+		<td>Text otázky</td>
+</tr>
 <?php
 while ($radek = mysqli_fetch_array($vysledek))
 {
@@ -92,7 +96,7 @@ if (!($vysledek_odpovedi = mysqli_query($con, "SELECT id_odpovedi, id_otazky, te
 
 <table border=1>
 	<tr>
-		<td>ID odpověďi</td>
+		<td>ID odpovědi</td>
 		<td>ID otázky</td>
 		<td>Odpověď</td>
 	</tr>
