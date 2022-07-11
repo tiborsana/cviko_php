@@ -33,7 +33,7 @@ while ($radek = mysqli_fetch_array($vysledek))
 {
 ?>
 <p><?php echo "<tr><td>" . $radek["id_otazky"] . "</td>";?>
-<?php echo "<td>" . $radek["text_otazky"] . "</td>";?></p>
+<?php echo "<td>" . htmlspecialchars($radek["text_otazky"]) . "</td>";?></p>
 <?php   
 }
 mysqli_free_result($vysledek);
@@ -106,7 +106,7 @@ while ($radek = mysqli_fetch_array($vysledek_odpovedi))
 ?>
 <p><?php echo "<tr><td>" . $radek["id_odpovedi"] . "</td>";?>
 <?php echo "<td>" . $radek["id_otazky"] . "</td>";?>
-<?php echo "<td>" . $radek["text_odpovedi"] . "</td></tr>";?></p>
+<?php echo "<td>" . htmlspecialchars($radek["text_odpovedi"]) . "</td></tr>";?></p>
 <?php   
 }
 mysqli_free_result($vysledek_odpovedi);

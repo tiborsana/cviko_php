@@ -48,7 +48,7 @@ while ($radek = mysqli_fetch_array($vysledek))
 {
 ?>
 <p><?php echo "<tr><td>" . $radek["id_otazky"] . "</td>";?>
-<?php echo "<td>" . $radek["text_otazky"] . "</td>";?></p>
+<?php echo "<td>" . htmlspecialchars($radek["text_otazky"]) . "</td>";?></p>
 <?php echo "<td>" . "<a href='detail.php?id=" . $radek["id_otazky"] . "'>Detail</a>" . "</td></tr>";?></p>
 <?php   
 }
